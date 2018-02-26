@@ -1,0 +1,12 @@
+{
+    "name": "@astelvida/imgsrc-to-term",
+    "version": "1.0.0",
+    "description": "Loads and processes image data from url/file to display it in the terminal",
+    "main": "index.js",
+    "scripts": {},
+    "author": "astelvida",
+    "license": "ISC",
+    "dependencies": {
+        "through2": "^2.0.3"
+    }
+}
