@@ -1,6 +1,6 @@
 {
     "name": "img-term-string",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Loads and processes image data from url/file to display it in the terminal",
     "main": "index.js",
     "scripts": {},
