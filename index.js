@@ -18,25 +18,24 @@ function getImg (opts, cb) {
         .get(opts.src, resp => processBody(resp, cb))
 } 
 
-function bufToStr(buffer, options = {}) {
+function bufToStr(buffer, { width = 'auto', height = 'auto' }) {
     formattedOpts = Object
-        .entries({ inline: '1', ...options.edit })
+        .entries({ inline: '1', width, height })
         .map(([k, v]) => `${k}=${v}`)
         .join(';');
     return '\u001B]1337;File=' + formattedOpts + ':' + buffer.toString('base64') + '\u0007';
 }
 
 function imgToTermCb(options = {}, cb) {
-    
-    const getTermImg = buff => cb(bufToStr(buff, options))
+    const gotTermImgCb = buff => cb(bufToStr(buff, options))
     const match = options.src.match(/(https?):\/\//);
 
     if (match) {
         options = { ...options, protocol: match[1] === 'https' ? https : http }
-        getImg(options, getTermImg);
+        getImg(options, gotTermImgCb);
     } else {
         const reader = fs.createReadStream(options.src);
-        processBody(reader, getTermImg)
+        processBody(reader, gotTermImgCb)
     }
 }
 
