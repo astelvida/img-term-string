@@ -47,6 +47,3 @@ function imgToTerm (options, cb) {
 }
 
 module.exports = imgToTerm;
-module.exports.getImg = getImg;
-module.exports.bufToStr = bufToStr;
-

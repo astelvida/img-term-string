@@ -1,12 +1,29 @@
 {
     "name": "img-term-string",
     "version": "1.0.3",
-    "description": "Loads and processes image data from url/file to display it in the terminal",
+    "description": "Get image string that can be displayed in the terminal from url or file source",
     "main": "index.js",
-    "scripts": {},
-    "author": "astelvida",
-    "license": "ISC",
+    "license": "MIT",
+    "author": {
+        "name": "astelvida",
+        "email": "sevda.m.anefi@gmail.com"
+    },
+    "homepage": "https://github.com/astelvida/img-term-string",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/astelvida/img-term-string.git"
+    },
     "dependencies": {
         "through2": "^2.0.3"
-    }
+    },
+    "keywords": [
+        "image",
+        "string",
+        "file",
+        "url",
+        "img",
+        "terminal",
+        "iterm",
+        "iterm2"
+    ]
 }
