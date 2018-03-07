@@ -11,7 +11,7 @@
 $ npm install --save img-term-string
 ```
 
-## Usage
+## API
 
 ```js
 const imgTermString = require('img-term-string');
@@ -33,12 +33,17 @@ The url or file path of the image.
 
 #### width
 #### height
-Type: `string` `number`
-Default: `auto`
+Type: `string` `number`</br>
+Default: `auto`</br>
 Options: `Npx` `N%` `N` `auto`
 
 Optional arguments. Set the width and height of the image.
  - in pixels(`Npx`)
  - as a % of the terminal view(`N%`)
  - number of char cells(`N`)
- - autoscale based on the image dimensions(`auto`).<br>
+ - autoscale based on the image dimensions(`auto`)
+ 
+## License
+
+MIT
+
