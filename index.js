@@ -1,7 +1,24 @@
-var through = require('through2');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const through = require('through2');
+const iterm2Version = require('iterm2-version');
+
+const handleUnsupportedTerminal = message => {
+    console.log(`${message} is not supported. Please install the latest stable release of iTerm2 - https://www.iterm2.com/downloads.html`);
+    process.exit();
+}
+
+const { TERM_PROGRAM } = process.env;
+
+if (TERM_PROGRAM !== 'iTerm.app') {
+    handleUnsupportedTerminal(TERM_PROGRAM);
+}
+
+const termVersion = iterm2Version();
+if ( TERM_PROGRAM === 'iTerm.app' && Number(termVersion.charAt(0)) < 3) {
+    handleUnsupportedTerminal(`iTerm2@${termVersion}`);
+}
 
 function processBody(reader, cb) {
     const body = [];
@@ -14,8 +31,7 @@ function processBody(reader, cb) {
 }
 
 function getImg (opts, cb) {
-    return opts.protocol
-        .get(opts.src, resp => processBody(resp, cb))
+    return opts.protocol.get(opts.src, resp => processBody(resp, cb))
 } 
 
 function bufToStr(buffer, { width = 'auto', height = 'auto' }) {
