@@ -11,7 +11,7 @@
 $ npm install --save img-term-string
 ```
 
-## API
+## Usage
 
 ```js
 const imgTermString = require('img-term-string');
@@ -21,7 +21,7 @@ imgTermString({ src: "https://someimage.png or path/to/local/image" })
 // returns the image string and logs it to the terminal
 ```
 
-## Usage
+## API
 
 ### imgTermString(options)
 Returns a the formatted image string via promise or callback.
