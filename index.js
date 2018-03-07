@@ -4,20 +4,23 @@ const http = require('http');
 const through = require('through2');
 const iterm2Version = require('iterm2-version');
 
-const handleUnsupportedTerminal = message => {
-    console.log(`${message} is not supported. Please install the latest stable release of iTerm2 - https://www.iterm2.com/downloads.html`);
-    process.exit();
-}
 
-const { TERM_PROGRAM } = process.env;
+function checkTerm() {
+    const handleUnsupportedTerminal = message => {
+        console.log(`${message} is not supported. Please install the latest stable release of iTerm2 - https://www.iterm2.com/downloads.html`);
+        process.exit();
+    }
 
-if (TERM_PROGRAM !== 'iTerm.app') {
-    handleUnsupportedTerminal(TERM_PROGRAM);
-}
+    const { TERM_PROGRAM } = process.env;
 
-const termVersion = iterm2Version();
-if ( TERM_PROGRAM === 'iTerm.app' && Number(termVersion.charAt(0)) < 3) {
-    handleUnsupportedTerminal(`iTerm2@${termVersion}`);
+    if (TERM_PROGRAM !== 'iTerm.app') {
+        handleUnsupportedTerminal(TERM_PROGRAM);
+    }
+
+    const termVersion = iterm2Version();
+    if ( TERM_PROGRAM === 'iTerm.app' && Number(termVersion.charAt(0)) < 3) {
+        handleUnsupportedTerminal(`iTerm2@${termVersion}`);
+    }
 }
 
 function processBody(reader, cb) {
@@ -54,6 +57,9 @@ function imgToTermCb(options = {}, cb) {
         processBody(reader, gotTermImgCb)
     }
 }
+
+
+if (process.env.NODE_ENV !== 'test') checkTerm();
 
 function imgToTerm (options, cb) {
     if (cb && typeof cb === 'function') {
