@@ -1,4 +1,4 @@
-# img-term-string
+# img-term-string [![Build Status](https://travis-ci.org/astelvida/img-term-string.svg?branch=master)](https://travis-ci.org/astelvida/img-term-string)
 
 > From image url or file to a string that can be used to render the image in the terminal.
 
