@@ -17,6 +17,12 @@
         "iterm2-version": "^2.3.0",
         "through2": "^2.0.3"
     },
+    "scripts": {
+        "test": "ava test.js"
+    },
+    "devDependencies": {
+        "ava": "^0.25.0"
+    },
     "keywords": [
         "image",
         "string",
