@@ -1,6 +1,6 @@
 {
     "name": "img-term-string",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Get image string that can be displayed in the terminal from url or file source",
     "main": "index.js",
     "license": "MIT",
